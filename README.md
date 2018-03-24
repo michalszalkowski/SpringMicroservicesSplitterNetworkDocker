@@ -17,3 +17,6 @@
 # Storage Service
 - `[NOT AVAILABLE]` http://storage-service:8080/
 - `this is internal service, port is not mapped to host`
+
+# Diagrams
+![Security Event Dashboard](assets/network-splitter.png)
