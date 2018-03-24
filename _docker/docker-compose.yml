@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+
+  gateway-service:
+    image: szalek/gateway-service
+    build: ./gateway-service
+    container_name: gateway-service
+    ports: ['8080:8080']
+    expose:
+      - "8080"
+    networks:
+      - szalek-network
+
+  article-service:
+    image: szalek/article-service
+    build: ./article-service
+    container_name: article-service
+    expose:
+      - "8080"
+    networks:
+      - szalek-network
+      - szalek-network-storage
+
+  storage-service:
+    image: szalek/storage-service
+    build: ./storage-service
+    container_name: storage-service
+    expose:
+      - "8080"
+    networks:
+      - szalek-network-storage
+
+networks:
+  szalek-network:
+    external: true
+  szalek-network-storage:
+    external: true
